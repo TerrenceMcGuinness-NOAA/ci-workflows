@@ -1,0 +1,21 @@
+name: orion
+
+on: [workflow_dispatch]
+
+env:
+  TEST_DIR: ${{ github.workspace }}/${{ github.run_id }}
+  MACHINE_ID: orion
+  CI_ROOT: ${{ ORION_CI_ROOT }}  # Env. secret variable
+
+jobs:
+  validate-user:
+    runs-on: [self-hosted, orion-ready]
+    timeout-minutes: 100
+
+    steps:
+    - name: Checkout ci-workflows
+      uses: actions/checkout@v3
+
+    - name: Validate user
+      run: |
+        scripts/validate_user.py -u ${{ github.actor }} -p ci-workflows -d ${{ env.CI_ROOT }}
