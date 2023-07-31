@@ -1,6 +1,7 @@
 name: orion
 
-on: [workflow_dispatch]
+on:
+  workflow_call:
 
 env:
   TEST_DIR: ${{ github.workspace }}/${{ github.run_id }}
