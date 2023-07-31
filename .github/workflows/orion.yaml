@@ -6,7 +6,7 @@ on:
 env:
   TEST_DIR: ${{ github.workspace }}/${{ github.run_id }}
   MACHINE_ID: orion
-  CI_ROOT: ${{ ORION_CI_ROOT }}  # Env. secret variable
+  CI_ROOT: ${{ secrets.ORION_CI_ROOT }}  # Env. secret variable
 
 jobs:
   validate-user:
