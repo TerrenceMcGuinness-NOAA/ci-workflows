@@ -30,7 +30,6 @@ if __name__ == "__main__":
     parser.add_argument("-d", "--dir_project", type=Path, help="Path to the directory containing project users", default='/', required=False)
 
     args = parser.parse_args()
-
-    file_path = args.dir_project / args.project + '.txt'
+ 
+    file_path = Path.absolute(Path.joinpath(args.dir_project,Path(args.project), Path(args.project+'.txt')))
     main(args.github_id, file_path)
-
