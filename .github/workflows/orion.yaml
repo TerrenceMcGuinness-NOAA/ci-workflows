@@ -22,12 +22,13 @@ jobs:
     - name: Validate global-workflow user
       run: |
         scripts/validate_user.py -g ${{ github.actor }} -p ci-workflows -d ${{ env.CI_ROOT }}
-
+        
   checkout-build-link:
     needs: authenticate
     runs-on: [self-hosted, orion-ready]
     timeout-minutes: 100
-
+    
+    steps:
     - name: Checkout global-workflow repository
       uses: actions/checkout@v3
       with:
