@@ -16,7 +16,10 @@ jobs:
     steps:
     - name: Checkout ci-workflows
       uses: actions/checkout@v3
+      with:
+        repository: TerrenceMcGuinness-NOAA/ci-workflows
+
 
     - name: Validate user
       run: |
-        scripts/validate_user.py -u ${{ github.actor }} -p ci-workflows -d ${{ env.CI_ROOT }}
+        scripts/validate_user.py -g ${{ github.actor }} -p ci-workflows -d ${{ env.CI_ROOT }}
