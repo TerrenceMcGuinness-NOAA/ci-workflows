@@ -21,7 +21,7 @@ jobs:
 
     - name: Validate global-workflow user
       run: |
-        scripts/validate_user.py -g ${{ github.actor }} -p ci-workflows -d ${{ env.CI_ROOT }}
+        scripts/validate_user.py -g ${{ github.actor }} -p global-workflow -d ${{ env.CI_ROOT }}
         
   checkout-build-link:
     needs: authenticate
