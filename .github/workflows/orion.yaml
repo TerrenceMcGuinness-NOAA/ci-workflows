@@ -65,7 +65,7 @@ jobs:
         run: |
           cd ${{ env.TEST_DIR }}/HOMEgfs
           source workflow/gw_setup.sh
-          source ci/platforms/orion.sh
+          source ci/platforms/${{ env.MACHINE_ID }}.sh
           ./ci/scripts/create_experiment.py --yaml ci/cases/${{ matrix.case }}.yaml --dir ${{ env.HOMEgfs_PR }}
 
   run-experiments:
