@@ -53,6 +53,7 @@ jobs:
     needs: checkout-build-link
     runs-on: [self-hosted, orion-ready]
     strategy:
+      parallelism: 2
       matrix:
         case: ["C48_S2S", "C96_atm3DVar"]
 
@@ -72,7 +73,7 @@ jobs:
     needs: create-experiments
     runs-on: [self-hosted, orion-ready]
     strategy:
-      max-parallel: 2
+      parallelism: 2
       matrix:
         case: ["C48_S2S", "C96_atm3DVar"]
     steps:
