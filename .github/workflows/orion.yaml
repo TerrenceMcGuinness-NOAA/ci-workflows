@@ -32,7 +32,7 @@ jobs:
     - name: Checkout global-workflow repository
       uses: actions/checkout@v3
       with:
-        path: ${{ github.run_id }}/HOMEgfs  # This path needs to be relative
+        path: ${{ github.run_id }}/HOMEgfs
 
     - name: Checkout components
       run: |
